@@ -5,11 +5,29 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:src="@drawable/logo"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/first"/>
+
+        <ProgressBar
+            android:id="@+id/progressIndicator"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:padding="1dp"
+            android:progressDrawable="@drawable/circular_progress_indicator"
+            android:background="@drawable/circle"
+            android:style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:progress="65"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignTop="@+id/imageView"/>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView"

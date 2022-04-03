@@ -11,9 +11,11 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:src="@drawable/first"/>
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/tenth"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
 
         <ProgressBar
             android:id="@+id/progressIndicator"
@@ -21,12 +23,10 @@
             android:layout_height="75dp"
             android:padding="1dp"
             android:progressDrawable="@drawable/circular_progress_indicator"
-            android:background="@drawable/circle"
-            android:style="?android:attr/progressBarStyleHorizontal"
+            android:background="@drawable/background_circular_progress_indicator"
+            style="?android:attr/progressBarStyleHorizontal"
             android:max="100"
-            android:progress="65"
-            android:layout_alignLeft="@+id/imageView"
-            android:layout_alignTop="@+id/imageView"/>
+            android:progress="52"/>
     </RelativeLayout>
 
     <TextView
@@ -34,6 +34,6 @@
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Burger King" />
+        android:text="David Tennant" />
 
 </LinearLayout>

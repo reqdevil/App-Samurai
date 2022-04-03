@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment_kotlin.R
 import com.example.assignment_kotlin.model.Story
 
-class StoryAdapter(private val list: List<Story>) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
+class StoryRecyclerAdapter(private val list: List<Story>) : RecyclerView.Adapter<StoryRecyclerAdapter.ViewHolder>() {
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val textView: TextView = itemView.findViewById(R.id.textView)

@@ -2,32 +2,53 @@ package com.example.assignment_kotlin.controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.LayoutDirection
+import android.util.Log
+import android.view.View
+import android.widget.ListView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment_kotlin.R
 import com.example.assignment_kotlin.model.Story
-import com.example.assignment_kotlin.view.StoryAdapter
+import com.example.assignment_kotlin.utilities.personList
+import com.example.assignment_kotlin.view.StoryListAdapter
+import com.example.assignment_kotlin.view.StoryRecyclerAdapter
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var storyView: RecyclerView
+    private val TAG: String = "Main Activity"
+
+    private lateinit var storyRecylerView: RecyclerView
+    private lateinit var storyListView: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        storyView = findViewById<RecyclerView>(R.id.storyView)
-        storyView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        storyRecylerView = findViewById<RecyclerView>(R.id.storyRecyclerView)
+        storyListView = findViewById(R.id.storyListView)
 
-        loadStoryView()
+        loadStoryRecyclerView()
+        loadStoryListView()
     }
 
-    private fun loadStoryView() {
+    private fun loadStoryRecyclerView() {
+        storyRecylerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
         val data = ArrayList<Story>()
-        for (i in 1..20) {
-            data.add(Story(R.drawable.logo, "Item $i"))
+        for (person in personList) {
+            data.add(Story(person.image, person.name))
         }
 
-        val adapter = StoryAdapter(data)
-        storyView.adapter = adapter
+        val adapter = StoryRecyclerAdapter(data)
+        storyRecylerView.adapter = adapter
+    }
+
+    private fun loadStoryListView() {
+        val mLayoutManager = LinearLayoutManager(applicationContext)
+        mLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+
+        storyListView.layoutDirection = View.LAYOUT_DIRECTION_LTR
+        Log.e(TAG, storyListView.layoutDirection.toString())
+        storyListView.adapter = StoryListAdapter(this, personList)
     }
 }

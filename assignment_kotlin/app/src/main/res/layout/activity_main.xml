@@ -10,24 +10,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/storyView"
+        <ListView
+            android:id="@+id/storyListView"
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:orientation="horizontal"
             android:overScrollMode="never">
+        </ListView>
 
-        </androidx.recyclerview.widget.RecyclerView>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/feedView"
+            android:id="@+id/storyRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="110dp"
+            android:orientation="horizontal"
             android:overScrollMode="never">
-
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
   </RelativeLayout>

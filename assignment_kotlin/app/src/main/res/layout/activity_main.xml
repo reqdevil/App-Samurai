@@ -7,29 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".controller.MainActivity">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/storyView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="110dp"
+        android:orientation="horizontal"
+        android:overScrollMode="never">
+    </androidx.recyclerview.widget.RecyclerView>
 
-        <ListView
-            android:id="@+id/storyListView"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never">
-        </ListView>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/storyView"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/storyRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never">
-        </androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
-  </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:text="Resmi İndir"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="downloadPicture"/>
+</RelativeLayout>

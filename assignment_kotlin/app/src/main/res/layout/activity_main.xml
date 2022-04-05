@@ -20,15 +20,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/storyView"
+        android:src="@drawable/logo"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"/>
 
     <Button
+        android:id="@+id/downloadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
         android:text="Resmi İndir"
         android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="downloadPicture"/>
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

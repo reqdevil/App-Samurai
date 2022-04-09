@@ -14,22 +14,4 @@
         android:orientation="horizontal"
         android:overScrollMode="never">
     </androidx.recyclerview.widget.RecyclerView>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/storyView"
-        android:src="@drawable/logo"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
-        android:id="@+id/downloadButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:text="Resmi İndir"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

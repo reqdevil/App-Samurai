@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var queue: RequestQueue
 
     private lateinit var storyView: RecyclerView
-    private lateinit var imageView: ImageView
-    private lateinit var downloadButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,17 +32,8 @@ class MainActivity : AppCompatActivity() {
         queue = Volley.newRequestQueue(this)
 
         storyView = findViewById(R.id.storyView)
-        imageView = findViewById(R.id.imageView)
-        downloadButton = findViewById(R.id.downloadButton)
-        downloadButton.setOnClickListener() { downloadButtonPressed() }
 
         loadStoryRecyclerView()
-    }
-
-    private fun downloadButtonPressed() {
-        val queue = DataService.getInstance(this.applicationContext).requestQueue
-        val request = DataService.getInstance(this.applicationContext).downloadJPEG(TAG, "image/jpeg")
-        DataService.getInstance(this).addToRequestQueue(request)
     }
 
     private fun loadStoryRecyclerView() {
@@ -55,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             data.add(Story(person.image, person.name))
         }
 
-        val adapter = StoryAdapter(data)
+        val adapter = StoryAdapter(data, applicationContext)
         storyView.adapter = adapter
     }
 }

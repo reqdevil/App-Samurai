@@ -2,17 +2,14 @@ package com.example.assignment_kotlin.service
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.media.metrics.Event
 import android.util.Log
-import android.util.LruCache
+import android.widget.ImageView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.*
-import java.io.BufferedReader
-import java.io.DataOutputStream
-import java.io.InputStreamReader
-import java.lang.Exception
-import java.net.HttpURLConnection
-import java.net.URL
+import com.example.assignment_kotlin.utilities.imageList
+
 
 class DataService(context: Context) {
     private val TAG = "Data Service"
@@ -33,33 +30,53 @@ class DataService(context: Context) {
             }
     }
 
-    fun downloadJPEG(tag: String, path: String): StringRequest {
-        val strReq = StringRequest(
-            Request.Method.GET, baseURL + path,
-            { response ->
-                Log.e(TAG, response.substring(0, 500))
-            },
-            { error -> Log.e(TAG, error.localizedMessage ) }
+    fun downloadImage(tag: String, completion: (List<Bitmap>) -> Unit) {
+        val bitmapList: MutableList<Bitmap> = arrayListOf()
+        val imageCount = 5
+        var finishedImage = 0
+
+        val imageThread = Thread(
+            Runnable {
+                for (i in 1..imageCount) {
+                    val image = rand(0, 23)
+
+                    val request = ImageRequest(
+                        imageList[image],
+                        { bitmap ->
+                            bitmapList.add(bitmap)
+                        },
+                        0, 0,
+                        ImageView.ScaleType.CENTER_CROP,
+                        Bitmap.Config.ARGB_8888,
+                        { error ->
+                            // TODO: SHOW TOAST IN TOAST SERVICE
+                        }
+                    )
+                    request.tag = tag + "$i"
+
+                    addToRequestQueue(request)
+                }
+            }
         )
-        strReq.tag = TAG
 
-        return strReq
+        imageThread.start()
+
+        requestQueue.addRequestEventListener { request, event ->
+            if (event == 5) {
+                finishedImage++
+            }
+
+            if (finishedImage == imageCount) {
+                completion(bitmapList)
+            }
+        }
     }
 
-    val imageLoader: ImageLoader by lazy {
-        ImageLoader(requestQueue,
-            object : ImageLoader.ImageCache {
-                private val cache = LruCache<String, Bitmap>(20)
-                override fun getBitmap(url: String): Bitmap {
-                    return cache.get(url)
-                }
-                override fun putBitmap(url: String, bitmap: Bitmap) {
-                    cache.put(url, bitmap)
-                }
-            })
-    }
-
-    fun <T> addToRequestQueue(req: Request<T>) {
+    private fun <T> addToRequestQueue(req: Request<T>) {
         requestQueue.add(req)
+    }
+
+    private fun rand(start: Int, end: Int): Int {
+        return (start..end).random()
     }
 }

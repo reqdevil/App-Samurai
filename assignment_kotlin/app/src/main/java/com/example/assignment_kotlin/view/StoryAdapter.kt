@@ -1,18 +1,13 @@
 package com.example.assignment_kotlin.view
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.util.Base64
-import android.util.Log
+import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment_kotlin.R
@@ -43,33 +38,15 @@ class StoryAdapter(private val list: List<Story>, private val context: Context) 
         holder.textView.text = story.text
 
         holder.imageView.setOnClickListener {
-            DataService.getInstance(context).downloadImage(TAG, completion = { bitmapList ->
-                if (bitmapList.isNotEmpty()) {
-                    val intent = Intent(context, StoryActivity::class.java)
-                    intent.putExtra("imageCount", bitmapList.size)
+            val intent = Intent(context, StoryActivity::class.java)
+            intent.putExtra("position", position)
 
-//                    TODO: SEND BITMAP TO OTHER SCREEN
-//                    for (i in bitmapList.indices) {
-//                        intent.putExtra("bitmap$i", encodeImage(bitmapList[i]))
-//                    }
-
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK;
-                    context.startActivity(intent)
-                } else {
-                    // TODO: SHOW TOAST
-                }
-            })
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
         return list.size
-    }
-
-    private fun encodeImage(bm: Bitmap): String? {
-        val baos = ByteArrayOutputStream()
-        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        val b = baos.toByteArray()
-        return Base64.encodeToString(b, Base64.DEFAULT)
     }
 }

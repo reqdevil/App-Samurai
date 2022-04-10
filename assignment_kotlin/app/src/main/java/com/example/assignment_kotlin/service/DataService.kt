@@ -15,7 +15,7 @@ class DataService(context: Context) {
     private val TAG = "Data Service"
     private val baseURL: String = "https://httpbin.org/"
 
-    val requestQueue: RequestQueue by lazy {
+    private val requestQueue: RequestQueue by lazy {
         Volley.newRequestQueue(context.applicationContext)
     }
 
@@ -30,46 +30,25 @@ class DataService(context: Context) {
             }
     }
 
-    fun downloadImage(tag: String, completion: (List<Bitmap>) -> Unit) {
-        val bitmapList: MutableList<Bitmap> = arrayListOf()
-        val imageCount = 5
-        var finishedImage = 0
+    fun getImage(tag: String, completion: (Bitmap, Long) -> Unit) {
+        val beginTime = System.currentTimeMillis()
+        val image = rand(0, 23)
 
-        val imageThread = Thread(
-            Runnable {
-                for (i in 1..imageCount) {
-                    val image = rand(0, 23)
-
-                    val request = ImageRequest(
-                        imageList[image],
-                        { bitmap ->
-                            bitmapList.add(bitmap)
-                        },
-                        0, 0,
-                        ImageView.ScaleType.CENTER_CROP,
-                        Bitmap.Config.ARGB_8888,
-                        { error ->
-                            // TODO: SHOW TOAST IN TOAST SERVICE
-                        }
-                    )
-                    request.tag = tag + "$i"
-
-                    addToRequestQueue(request)
-                }
+        val request = ImageRequest(
+            imageList[image],
+            { bitmap ->
+                completion(bitmap, beginTime)
+            },
+            0, 0,
+            ImageView.ScaleType.CENTER_CROP,
+            Bitmap.Config.ARGB_8888,
+            { error ->
+                // TODO: SHOW TOAST IN TOAST SERVICE
             }
         )
+        request.tag = tag
 
-        imageThread.start()
-
-        requestQueue.addRequestEventListener { request, event ->
-            if (event == 5) {
-                finishedImage++
-            }
-
-            if (finishedImage == imageCount) {
-                completion(bitmapList)
-            }
-        }
+        addToRequestQueue(request)
     }
 
     private fun <T> addToRequestQueue(req: Request<T>) {

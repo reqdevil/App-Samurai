@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">assignment_kotlin</string>
+    <string name="appName">App Samurai</string>
+    <string name="error">There has been an error</string>
+    <string name="successful">Your request has completed</string>
+    <string name="information">Something happened in your request</string>
+    <string name="warning">There is something dangerous going on in here</string>
+    <string name="successMessage">Your request has been successfully completed</string>
+    <string name="errorMessage">Your request has failed</string>
+    <string name="informationMessage">There is something happened in your request</string>
+    <string name="warningMessage">There has some dangerous things happening in your request</string>
 </resources>

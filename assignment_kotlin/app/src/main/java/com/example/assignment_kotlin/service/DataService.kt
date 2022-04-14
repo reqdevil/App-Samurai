@@ -7,13 +7,13 @@ import android.util.Log
 import android.widget.ImageView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
+import com.android.volley.VolleyError
 import com.android.volley.toolbox.*
 import com.example.assignment_kotlin.utilities.imageList
 
 
 class DataService(context: Context) {
     private val TAG = "Data Service"
-    private val baseURL: String = "https://httpbin.org/"
 
     private val requestQueue: RequestQueue by lazy {
         Volley.newRequestQueue(context.applicationContext)
@@ -30,20 +30,20 @@ class DataService(context: Context) {
             }
     }
 
-    fun getImage(tag: String, completion: (Bitmap, Long) -> Unit) {
-        val beginTime = System.currentTimeMillis()
-        val image = rand(0, 23)
+    fun getImage(tag: String, completion: (Bitmap?, VolleyError?) -> Unit) {
+        val image = rand(20, imageList.size - 1) // Highest Resolution
+//        val image = rand(0, imageList.size -1) // Any resolution
 
         val request = ImageRequest(
             imageList[image],
             { bitmap ->
-                completion(bitmap, beginTime)
+                completion(bitmap, null)
             },
             0, 0,
             ImageView.ScaleType.CENTER_CROP,
             Bitmap.Config.ARGB_8888,
             { error ->
-                // TODO: SHOW TOAST IN TOAST SERVICE
+                completion(null, error)
             }
         )
         request.tag = tag

@@ -7,11 +7,24 @@
         <entry key="..\:/Codes/App-Samurai/assignment_kotlin/app/src/main/res/layout/activity_story.xml" value="0.33" />
         <entry key="..\:/Codes/App-Samurai/assignment_kotlin/app/src/main/res/layout/recycler_view_story.xml" value="0.20208333333333334" />
         <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/background_circular_progress_indicator.xml" value="0.194" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/background_toast.xml" value="0.2095" />
         <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/circle.xml" value="0.324" />
         <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/circular_progress_indicator.xml" value="0.324" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/toast_error_success.xml" value="0.2095" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/toast_error_warning.xml" value="0.2095" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/toast_information_background.xml" value="0.2095" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/toast_success_background.xml" value="0.2095" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/drawable/toast_warning_background.xml" value="0.2095" />
         <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/activity_story.xml" value="0.67" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/layout_information.xml" value="0.20208333333333334" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/layout_toast.xml" value="0.20208333333333334" />
         <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/recycler_view_feed.xml" value="0.33" />
-        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/recycler_view_story.xml" value="0.33" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/recycler_view_story.xml" value="1.0" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/toast_error.xml" value="0.20208333333333334" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/toast_information.xml" value="0.20208333333333334" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/toast_success.xml" value="0.20208333333333334" />
+        <entry key="..\:/Projects/App-Samurai/assignment_kotlin/app/src/main/res/layout/toast_warning.xml" value="0.20208333333333334" />
       </map>
     </option>
   </component>

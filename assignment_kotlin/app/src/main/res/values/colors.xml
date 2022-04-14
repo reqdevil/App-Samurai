@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="mainColor">#010175</color>
+    <color name="mainVariant">#55559a</color>
+    <color name="errorColor">#D20000</color>
+    <color name="successColor">#00D200</color>
+    <color name="informationColor">#00D2D0</color>
+    <color name="warningColor">#CCD200</color>
 </resources>

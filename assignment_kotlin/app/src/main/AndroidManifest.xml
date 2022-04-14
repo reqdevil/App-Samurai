@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Assignment_kotlin">
+        android:theme="@style/Theme.AppSamurai">
         <activity
             android:name=".controller.StoryActivity"
             android:exported="false" />

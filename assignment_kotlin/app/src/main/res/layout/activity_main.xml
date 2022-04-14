@@ -10,7 +10,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/storyView"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:overScrollMode="never">
     </androidx.recyclerview.widget.RecyclerView>

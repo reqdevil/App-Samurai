@@ -1,21 +1,13 @@
 package com.example.assignment_kotlin.controller
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.assignment_kotlin.R
 import com.example.assignment_kotlin.model.Story
-import com.example.assignment_kotlin.service.DataService
 import com.example.assignment_kotlin.utilities.personList
 import com.example.assignment_kotlin.view.StoryAdapter
 
@@ -44,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             data.add(Story(person.image, person.name))
         }
 
-        val adapter = StoryAdapter(data, applicationContext)
+        val adapter = StoryAdapter(data, applicationContext, window)
         storyView.adapter = adapter
     }
 }
